@@ -30,3 +30,10 @@ Ouvre le fichier sur github.com, clique sur le crayon, modifie, puis **Commit ch
 ## Miniatures de lien
 
 Chaque guide a sa miniature 1200 × 630 (`og.jpg` dans son dossier), celle qui s'affiche quand on envoie le lien en DM, sur WhatsApp ou LinkedIn. Elles sont faites avec le modèle `_outils/miniature.html` (gros titre, sous-titre, pastille, image dans le téléphone, pose de Cerega). Demande à Claude d'en générer une pour chaque nouveau guide.
+
+## Règles pour les prochains guides
+
+- Poses de Cerega : toujours détourées (WebP animé transparent, dans `_assets/cerega/`), jamais de vidéo avec un fond bleu encadré.
+- Un titre d'ouverture travaillé et animé (contour décalé, reflet, glitch).
+- La vidéo finale en tête de page, avec le son activable.
+- Deux CTA, Skool et groupe WhatsApp, répétés plusieurs fois dans la page (grands widgets + bandeaux), plus la barre fixe en bas.

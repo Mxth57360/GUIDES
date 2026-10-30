@@ -75,7 +75,7 @@ strong{font-weight:700}
 /* ---------- hero ---------- */
 .hero{position:relative;padding:28px 0 40px;overflow:hidden}
 .hero .wrap{display:grid;gap:28px;align-items:center}
-.hero .wrap>*{min-width:0}
+.hero .wrap>*{min-width:0;position:relative}
 .reg{position:absolute;inset:18px 12px auto 12px;height:1px;background:rgba(255,255,255,.55)}
 .reg::before,.reg::after{content:"+";position:absolute;top:-12px;font:400 20px/1 var(--body);color:#fff}
 .reg::before{left:22%}.reg::after{right:22%}
@@ -84,34 +84,58 @@ strong{font-weight:700}
 .ruler span::after{content:"";position:absolute;right:-6px;top:50%;width:6px;height:1px;background:#fff}
 @media (max-width:759px){.ruler{display:none}}
 .kicker{font:600 20px/1.2 var(--cond);color:var(--white);margin:0 0 6px}
-h1.glitch{margin:0;font:400 clamp(86px,25vw,196px)/.86 var(--display);letter-spacing:-.005em}
-.g{position:relative;display:inline-block;color:var(--red);text-transform:uppercase;text-shadow:0 6px 0 rgba(6,11,48,.35)}
-.g::before,.g::after{content:attr(data-t);position:absolute;left:0;top:0;width:100%;color:#fff;text-shadow:none;pointer-events:none}
-.g::before{clip-path:inset(39% 0 47% 0);transform:translateX(-.04em)}
-.g::after{color:var(--royal);clip-path:inset(63% 0 34% 0);transform:translateX(.08em)}
-@media (prefers-reduced-motion:no-preference){
-  .g::before{animation:jit 900ms steps(6,end) 250ms 1 both}
-  .g::after{animation:jit2 900ms steps(6,end) 250ms 1 both}
-}
-@keyframes jit{0%{transform:translateX(.2em);clip-path:inset(12% 0 74% 0)}30%{transform:translateX(-.16em);clip-path:inset(58% 0 28% 0)}60%{transform:translateX(.1em);clip-path:inset(26% 0 60% 0)}100%{transform:translateX(-.04em);clip-path:inset(39% 0 47% 0)}}
-@keyframes jit2{0%{transform:translateX(-.2em);clip-path:inset(80% 0 17% 0)}40%{transform:translateX(.16em);clip-path:inset(30% 0 67% 0)}70%{transform:translateX(-.08em);clip-path:inset(70% 0 27% 0)}100%{transform:translateX(.08em);clip-path:inset(63% 0 34% 0)}}
-.row2{display:flex;gap:clamp(14px,3vw,28px);align-items:flex-start}
-.row2 .g{font:400 clamp(86px,25vw,196px)/.86 var(--display)}
+/* ---------- titre animé ---------- */
+.title{position:relative;margin:0;font:400 clamp(86px,25vw,196px)/.86 var(--display);text-transform:uppercase;letter-spacing:-.005em}
+.speed{position:absolute;left:-30%;right:-40%;top:6%;height:150%;pointer-events:none;overflow:hidden;z-index:0}
+.speed i{position:absolute;left:100%;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8));animation:speed 1.9s linear infinite}
+.speed i:nth-child(1){top:12%;width:26%;animation-delay:-.2s}
+.speed i:nth-child(2){top:34%;width:40%;animation-delay:-1.1s;opacity:.6}
+.speed i:nth-child(3){top:52%;width:18%;animation-delay:-.6s}
+.speed i:nth-child(4){top:71%;width:34%;animation-delay:-1.5s;opacity:.5}
+.speed i:nth-child(5){top:88%;width:22%;animation-delay:-.9s;opacity:.7}
+@keyframes speed{to{transform:translateX(-620%)}}
+.word{position:relative;display:inline-block;z-index:1;white-space:nowrap}
+.word::before{content:attr(data-t);position:absolute;left:0;top:0;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.95);transform:translate(.05em,.045em);z-index:-1}
+.word .base{display:block;color:var(--red);text-shadow:0 .03em 0 rgba(6,11,48,.25)}
+.word .sheen,.word .gl1,.word .gl2{position:absolute;left:0;top:0;pointer-events:none}
+.word .sheen{color:transparent;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.9) 48%,transparent 58%) 0 0/320% 100% no-repeat;-webkit-background-clip:text;background-clip:text;animation:sheen 4.6s ease-in-out infinite}
+@keyframes sheen{0%,8%{background-position:130% 0}48%,100%{background-position:-70% 0}}
+.word .gl1{color:#fff;clip-path:inset(39% 0 47% 0);transform:translateX(-.04em);animation:glA 4.6s steps(1,end) infinite}
+.word .gl2{color:var(--royal);clip-path:inset(63% 0 34% 0);transform:translateX(.08em);animation:glB 4.6s steps(1,end) infinite}
+@keyframes glA{0%,84%,100%{transform:translateX(-.04em);clip-path:inset(39% 0 47% 0)}86%{transform:translateX(.2em);clip-path:inset(10% 0 76% 0)}89%{transform:translateX(-.16em);clip-path:inset(58% 0 28% 0)}92%{transform:translateX(.1em);clip-path:inset(24% 0 62% 0)}}
+@keyframes glB{0%,84%,100%{transform:translateX(.08em);clip-path:inset(63% 0 34% 0)}87%{transform:translateX(-.22em);clip-path:inset(80% 0 16% 0)}90%{transform:translateX(.18em);clip-path:inset(30% 0 66% 0)}93%{transform:translateX(-.06em);clip-path:inset(70% 0 27% 0)}}
+.one .base{color:transparent;background:repeating-conic-gradient(#fff 0 25%,var(--red) 0 50%) 0 0/.22em .22em;-webkit-background-clip:text;background-clip:text;animation:flag 2.2s linear infinite;text-shadow:none}
+@keyframes flag{to{background-position:.44em 0}}
+.one::before{-webkit-text-stroke:3px #fff}
+.row2{display:flex;gap:clamp(14px,3vw,30px);align-items:flex-start;position:relative;z-index:1}
+.row2 .title{flex:none}
 .row2 .lede{margin-top:clamp(4px,1vw,14px)}
+.lede{margin-top:clamp(4px,1vw,14px)}
 .lede{font:500 clamp(19px,2.4vw,23px)/1.45 var(--body);color:var(--white);max-width:30ch;margin:0 0 20px}
 .ctas{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:10px;font:700 20px/1 var(--cond);text-decoration:none;padding:15px 22px;border-radius:12px;border:2px solid #fff;color:#fff;background:transparent}
-.btn.red{background:var(--red);border-color:var(--red)}
-.btn:hover{color:#fff;filter:brightness(1.08)}
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;font:800 italic 21px/1 var(--cond);letter-spacing:.01em;text-decoration:none;padding:16px 22px 15px;border-radius:14px;border:2px solid #fff;color:#fff;background:rgba(6,11,48,.25);box-shadow:0 6px 0 rgba(6,11,48,.55);transition:transform .15s ease,box-shadow .15s ease,background .15s ease;overflow:hidden}
+.btn svg{flex:none;transition:transform .2s ease}
+.btn:hover{color:#fff;transform:translateY(2px);box-shadow:0 4px 0 rgba(6,11,48,.55)}
+.btn:hover svg{transform:translateX(4px)}
+.btn:active{transform:translateY(6px);box-shadow:0 0 0 rgba(6,11,48,.55)}
+.btn.red{background:var(--red);border-color:var(--red);box-shadow:0 6px 0 #9E0F1A}
+.btn.red:hover{box-shadow:0 4px 0 #9E0F1A}
+.btn.shine::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%,55%{left:-60%}85%,100%{left:130%}}
 .facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:22px 0 0;padding:0;list-style:none;font:600 17px/1.2 var(--cond);color:var(--mist)}
 .facts b{font:400 26px/1 var(--display);color:#fff;margin-right:6px;font-weight:400}
 .stage{position:relative;display:flex;justify-content:flex-end;align-items:flex-end;width:100%}
 .phone{position:relative;width:min(300px,60vw);margin-left:auto;aspect-ratio:9/16;border-radius:30px;overflow:hidden;border:6px solid #050a2a;box-shadow:0 30px 60px rgba(4,8,40,.45),0 0 0 1px rgba(255,255,255,.25);background:#000;z-index:3}
 .phone video{width:100%;height:100%;object-fit:cover}
-.sound{position:absolute;right:10px;bottom:10px;z-index:3;font:700 15px/1 var(--cond);color:#fff;background:rgba(6,11,48,.75);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 12px;cursor:pointer}
-.stage .cerega{position:absolute;left:-10px;bottom:0;width:min(250px,50vw);z-index:1}
-.cerega{pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 72% 76% at 50% 48%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 76% at 50% 48%,#000 62%,transparent 100%)}
-.cerega video,.cerega img{width:100%;height:auto}
+.sound{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:4;display:flex;align-items:center;gap:8px;white-space:nowrap;font:800 italic 17px/1 var(--cond);color:#fff;background:var(--red);border:0;border-radius:999px;padding:11px 16px 10px 13px;cursor:pointer;box-shadow:0 5px 0 #9E0F1A}
+.sound::before{content:"";position:absolute;inset:-6px;border-radius:999px;border:2px solid rgba(255,46,59,.8);animation:ring 1.6s ease-out infinite}
+.sound.on{background:rgba(6,11,48,.8);box-shadow:none}
+.sound.on::before{display:none}
+@keyframes ring{from{opacity:1;transform:scale(.9)}to{opacity:0;transform:scale(1.25)}}
+.stage .cerega{position:absolute;left:-6px;bottom:-14px;width:min(190px,42vw);z-index:5}
+.cerega{pointer-events:none}
+.cerega img,.cerega picture{display:block;width:100%;height:auto}
+.pose{filter:drop-shadow(0 16px 18px rgba(4,8,40,.35))}
 
 /* ---------- panneaux ---------- */
 .panel{position:relative;background:var(--deep);border:1px solid var(--line);border-radius:18px;padding:26px 20px;
@@ -151,7 +175,9 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
 .playhead{position:absolute;top:8px;bottom:8px;width:2px;background:var(--red);left:calc(14px + 96px + 10px);pointer-events:none}
 .playhead::before{content:"";position:absolute;top:-6px;left:-5px;border:6px solid transparent;border-top-color:var(--red)}
 .moments{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
-.moments button{width:100%;text-align:left;display:block;background:rgba(6,11,48,.55);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:#fff;cursor:pointer;font:600 17px/1.2 var(--cond)}
+.moments button{position:relative;width:100%;text-align:left;display:block;background:rgba(6,11,48,.55);border:1px solid var(--line);border-radius:12px;padding:10px 12px 10px 40px;color:#fff;cursor:pointer;font:700 17px/1.2 var(--cond);transition:border-color .15s,background .15s,transform .15s}
+.moments button::before{content:"";position:absolute;left:12px;top:12px;width:18px;height:18px;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3.5 2.5l4 2.5-4 2.5z' fill='white'/%3E%3C/svg%3E") center/12px no-repeat}
+.moments button:hover{transform:translateY(-1px)}
 .moments button small{display:block;font:400 14px/1.3 var(--body);color:var(--mist);margin-top:3px}
 .moments button:hover,.moments button.on{border-color:var(--red);background:rgba(255,46,59,.12)}
 .legend{display:grid;gap:12px;margin-top:20px}
@@ -159,7 +185,7 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
 .legend b{font:700 18px/1 var(--cond);letter-spacing:.06em;margin-right:6px}
 
 /* ---------- byline / callouts ---------- */
-.byline{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center}
+.byline{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center}
 .byline .cerega{width:120px}
 .byline p{margin:0;font-size:18px}
 .callout{display:flex;gap:16px;align-items:center;border-radius:16px;padding:18px 18px;text-decoration:none}
@@ -173,6 +199,59 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
 .callout.wa .ico{background:rgba(6,43,20,.12)}
 .callout .go{margin-left:auto;font:700 18px/1 var(--cond);white-space:nowrap}
 
+/* ---------- CTA Skool ---------- */
+.cta-skool{position:relative;margin:56px 0 8px;padding:30px 22px 28px;border-radius:24px;background:var(--red);color:#fff;overflow:visible;isolation:isolate;box-shadow:0 10px 0 #9E0F1A,0 30px 50px rgba(4,8,40,.35)}
+.cta-skool .bgc{position:absolute;inset:0;border-radius:24px;overflow:hidden;z-index:-1;background:repeating-linear-gradient(-55deg,rgba(255,255,255,.07) 0 14px,transparent 14px 30px)}
+.cta-skool .wm{position:absolute;right:-6px;bottom:-.12em;font:400 clamp(90px,22vw,190px)/.8 var(--display);color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.35);white-space:nowrap;pointer-events:none;overflow:hidden;max-width:100%}
+.cta-skool .chip{display:inline-flex;align-items:center;gap:8px;font:800 italic 17px/1 var(--cond);background:#fff;color:var(--red);border-radius:999px;padding:7px 12px 6px}
+.cta-skool h3{margin:14px 0 10px;font:400 clamp(34px,6.2vw,54px)/.98 var(--display);text-transform:uppercase;max-width:15ch;color:#fff}
+.cta-skool p{color:#fff;max-width:36ch;margin:0 0 14px;font-weight:500}
+.cta-skool ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:8px}
+.cta-skool li{display:flex;gap:10px;align-items:center;font:700 20px/1.2 var(--cond)}
+.cta-skool li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23FF2E3B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.btn.white{background:#fff;color:var(--red);border-color:#fff;box-shadow:0 6px 0 #0A1242}
+.btn.white:hover{color:var(--red);box-shadow:0 4px 0 #0A1242}
+.cta-skool .cerega{position:absolute;right:-8px;top:-70px;width:clamp(130px,34vw,230px);z-index:2}
+.cta-skool .copyb{padding-right:0}
+.cta-skool h3{max-width:11ch}
+.cta-mini{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;justify-content:space-between;margin:40px 0 0;padding:16px 16px 16px 20px;border-radius:18px;background:var(--deep);border:2px solid var(--red);box-shadow:0 6px 0 rgba(6,11,48,.5)}
+.cta-mini p{margin:0;font:700 21px/1.2 var(--cond);max-width:30ch}
+.cta-mini p b{color:var(--red)}
+/* ---------- CTA WhatsApp ---------- */
+.cta-wa{position:relative;margin:56px 0 8px;padding:24px 20px 24px;border-radius:24px;background:linear-gradient(140deg,#2BE071,#128C4A);color:#062b14;box-shadow:0 10px 0 #0B6B37,0 30px 50px rgba(4,8,40,.3);isolation:isolate}
+.cta-wa::before{content:"";position:absolute;inset:0;border-radius:24px;z-index:-1;opacity:.12;background:radial-gradient(circle at 20% 20%,#fff 0 2px,transparent 3px) 0 0/22px 22px}
+.cta-wa .head{display:flex;align-items:center;gap:14px}
+.cta-wa .logo{position:relative;flex:none;width:58px;height:58px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.cta-wa .logo::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:3px solid rgba(255,255,255,.85);animation:ring 1.8s ease-out infinite}
+.cta-wa h3{margin:0;font:400 clamp(30px,5.6vw,46px)/1 var(--display);text-transform:uppercase;color:#062b14}
+.bubble{position:relative;margin:18px 0 20px;max-width:34ch;padding:14px 16px;border-radius:4px 18px 18px 18px;background:#fff;color:#0b2e1b;font:600 18px/1.4 var(--body);box-shadow:0 4px 0 rgba(6,43,20,.15)}
+.bubble small{display:block;margin-top:6px;font:500 13px/1 var(--body);color:#5f7a6a;text-align:right}
+.btn.wa{background:#062b14;color:#fff;border-color:#062b14;box-shadow:0 6px 0 #03170a}
+.btn.wa:hover{color:#fff;box-shadow:0 4px 0 #03170a}
+.cta-wa .cerega{position:absolute;right:-6px;bottom:-8px;width:clamp(120px,30vw,200px);z-index:2}
+.cta-wa .copyb{padding-right:clamp(70px,20vw,160px)}
+.wa-mini{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between;margin:40px 0 0;padding:14px 16px;border-radius:18px;background:#E9FBEF;color:#062b14;box-shadow:0 6px 0 #0B6B37}
+.wa-mini p{margin:0;font:700 20px/1.2 var(--cond);display:flex;align-items:center;gap:10px}
+/* ---------- barre CTA fixe ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(10,18,66,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(calc(100% + 40px));transition:transform .3s ease}
+.dock.show{transform:none}
+.dock a{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font:800 italic 19px/1 var(--cond);border-radius:14px;padding:13px 14px 12px}
+.dock .d-skool{flex:1;background:var(--red);color:#fff;box-shadow:0 4px 0 #9E0F1A}
+.dock .d-wa{flex:none;background:var(--green);color:#062b14;box-shadow:0 4px 0 #0B6B37}
+.dock .d-skool b{font-weight:800}
+body{padding-bottom:84px}
+@media (min-width:760px){
+  .dock{left:auto;right:24px;bottom:24px;border-radius:20px;border:1px solid var(--line);padding:10px;box-shadow:0 20px 40px rgba(4,8,40,.4)}
+  .dock .d-skool{flex:none;padding:13px 20px 12px}
+  body{padding-bottom:0}
+  .cta-skool{padding:44px 40px 40px}
+  .cta-skool .cerega{right:56px;top:auto;bottom:0;width:330px}
+  .cta-skool .copyb{padding-right:380px}
+  .cta-skool h3{max-width:15ch}
+  .cta-wa{padding:32px 36px}
+  .cta-wa .cerega{right:24px;width:220px}
+  .cta-wa .copyb{padding-right:220px}
+}
 /* ---------- tableau matos ---------- */
 .tools{width:100%;border-collapse:collapse;font-size:16px}
 .tools th{font:700 15px/1.2 var(--cond);letter-spacing:.06em;color:var(--cyan);text-align:left;padding:0 10px 10px 0}
@@ -183,13 +262,13 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
 .steps{counter-reset:none}
 .step{padding:56px 0 8px}
 .step-grid{display:grid;gap:0}
-.step-head{position:relative;display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px;margin-bottom:0}
+.step-head{position:relative;display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px;margin-bottom:0;z-index:3}
 .step-head .layer{margin-top:14px}
 .stepnum{display:block;font:400 clamp(108px,26vw,190px)/.8 var(--display);color:var(--red);text-shadow:0 5px 0 rgba(6,11,48,.4)}
 .step-title{margin:16px 0 22px;font:400 clamp(38px,7.4vw,64px)/.95 var(--display);text-transform:uppercase;max-width:14ch}
 .layer{display:inline-block;font:700 italic 17px/1 var(--cond);padding:7px 11px;border-radius:8px;background:rgba(6,11,48,.55);border:1px solid var(--line);color:#fff}
 .layer b{color:var(--red);font-weight:800;margin-right:8px}
-.step-head .cerega{width:clamp(130px,36vw,200px);margin-right:-10px;align-self:end}
+.step-head .cerega{width:clamp(120px,34vw,190px);margin-right:-6px;margin-bottom:-44px;align-self:end}
 .rail{display:none}
 
 /* ---------- prompts ---------- */
@@ -197,8 +276,10 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
 .prompt-head{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;padding:14px 14px 12px 16px;border-bottom:1px solid var(--line)}
 .prompt-kind{grid-column:1/2;font:600 14px/1.2 var(--cond);letter-spacing:.08em;color:var(--cyan)}
 .prompt-head h4{grid-column:1/2}
-.copy{grid-column:2/3;grid-row:1/3;font:700 17px/1 var(--cond);color:#fff;background:var(--red);border:0;border-radius:10px;padding:12px 16px;cursor:pointer;min-width:96px}
-.copy.ok{background:var(--green);color:#062b14}
+.copy{grid-column:2/3;grid-row:1/3;display:inline-flex;align-items:center;gap:8px;font:800 italic 18px/1 var(--cond);color:#fff;background:var(--red);border:0;border-radius:12px;padding:12px 15px 11px;cursor:pointer;min-width:110px;justify-content:center;box-shadow:0 4px 0 #9E0F1A;transition:transform .12s ease,box-shadow .12s ease}
+.copy:hover{transform:translateY(1px);box-shadow:0 3px 0 #9E0F1A}
+.copy:active{transform:translateY(4px);box-shadow:none}
+.copy.ok{background:var(--green);color:#062b14;box-shadow:0 4px 0 #128C4A}
 .prompt-refs{padding:10px 16px;font:500 15px/1.45 var(--body);color:var(--mist);border-bottom:1px solid var(--line);background:rgba(23,60,219,.12)}
 .prompt-refs b{color:#fff}
 .prompt-body{position:relative;margin:0;padding:14px 16px 16px;white-space:pre-wrap;word-wrap:break-word;font:400 15.5px/1.6 var(--body);color:#DDE4FF;max-height:none}
@@ -251,7 +332,7 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
   .hero .wrap{grid-template-columns:1.1fr .9fr}
   .stage{max-width:560px;margin-left:auto}
   .phone{width:320px}
-  .stage .cerega{left:0;width:280px}
+  .stage .cerega{left:40px;width:250px;bottom:-20px}
   .step-grid{grid-template-columns:minmax(0,780px) 1fr;gap:40px;align-items:start}
   .step-head .cerega{display:none}
   .rail{display:block;position:sticky;top:96px}
@@ -294,13 +375,14 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
   <div class="wrap">
     <div>
       <p class="kicker">Le guide complet de la vidéo</p>
-      <h1 class="glitch" aria-label="Formule 1"><span class="g" data-t="FORMULE" aria-hidden="true">Formule</span></h1>
+      <div class="speed" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <h1 class="title" aria-label="Formule 1"><span class="word" data-t="FORMULE" aria-hidden="true"><span class="base">Formule</span><span class="sheen">FORMULE</span><span class="gl1">FORMULE</span><span class="gl2">FORMULE</span></span></h1>
       <div class="row2">
-        <span class="g" data-t="1" aria-hidden="true">1</span>
+        <span class="title" aria-hidden="true"><span class="word one" data-t="1"><span class="base">1</span><span class="gl1">1</span></span></span>
         <div>
           <p class="lede">De la table vide à la course IA : refais la vidéo étape par étape, avec tous les prompts prêts à copier.</p>
           <div class="ctas">
-            <a class="btn red" href="#etape-01">Commencer le guide</a>
+            <a class="btn red shine" href="#etape-01">Commencer le guide <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="btn" href="#prompts">Aller aux prompts</a>
           </div>
         </div>
@@ -314,10 +396,10 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
     <div class="stage">
       <div class="phone">
         <video id="hero" src="media/f1_final.mp4" poster="media/img/poster_final.jpg" autoplay muted loop playsinline preload="metadata" aria-label="La vidéo finale Formule 1"></video>
-        <button class="sound" id="sound" aria-pressed="false">Activer le son</button>
+        <button class="sound" id="sound" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg><span>Mets le son</span></button>
       </div>
       <div class="cerega" aria-hidden="true">
-        <video data-loop src="media/cerega/montre.mp4" poster="media/cerega/montre.jpg" muted loop playsinline preload="none"></video>
+        <picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/montre_still.webp"><img class="pose" src="media/cerega/montre.webp" alt="" decoding="async"></picture>
       </div>
     </div>
   </div>
@@ -358,17 +440,21 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
 
   <div class="block">
     <div class="byline">
-      <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/bras_croises.mp4" poster="media/cerega/bras_croises.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/bras_croises_still.webp"><img class="pose" src="media/cerega/bras_croises.webp" alt="" loading="lazy" decoding="async"></picture></div>
       <p>Je te donne ici tout ce qu'on a utilisé pour cette vidéo : l'ordre des étapes, les réglages et les prompts. Suis-le dans l'ordre, même si ça paraît bizarre : la course se prépare avant même de filmer.</p>
     </div>
   </div>
-  <div class="block">
-    <a class="callout red" href="https://www.skool.com/formation-ia" target="_blank" rel="noopener">
-      <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
-      <span><span class="t">Apprends la création de contenu vidéo IA avec CERËGA</span><br><span class="s">Cours, lives et exercices sur le Skool.</span></span>
-      <span class="go">Le Skool</span>
-    </a>
-  </div>
+  <aside class="cta-skool" data-cta>
+    <span class="bgc" aria-hidden="true"><span class="wm">SKOOL 2.0</span></span>
+    <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/chef_still.webp"><img class="pose" src="media/cerega/chef.webp" alt="" loading="lazy" decoding="async"></picture></div>
+    <div class="copyb">
+      <span class="chip">SKOOL 2.0 · la formation</span>
+      <h3>Tu veux sortir des vidéos comme celle-là ?</h3>
+      <p>Sur le Skool, CERËGA t'apprend la création de contenu vidéo IA de A à Z.</p>
+      <ul><li>Des cours pas à pas</li><li>Des lives</li><li>Des exercices et des concours</li></ul>
+      <a class="btn white shine" href="https://www.skool.com/formation-ia" target="_blank" rel="noopener">Rejoindre le Skool <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </aside>
 </section>
 
 <!-- ================= MATOS ================= -->
@@ -397,7 +483,7 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
     <div class="main-col">
       <div class="step-head">
         <div><span class="stepnum">01</span><span class="layer"><b>Étape 01</b>Images + Seedance 2.5</span></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/cartes.mp4" poster="media/cerega/cartes.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/cartes_still.webp"><img class="pose" src="media/cerega/cartes.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <h2 class="step-title">Prépare la course avant de filmer</h2>
       <div class="panel">
@@ -428,35 +514,35 @@ figcaption{margin-top:8px;font:500 15px/1.4 var(--body);color:var(--mist)}
         <p>Chaque prompt est complet : copie-le tel quel, remplace juste ce qui est entre crochets.</p>
 
         <div class="prompt" data-prompt>
-          <div class="prompt-head"><span class="prompt-kind">IMAGE · GPT IMAGE 2 OU SEEDREAM · 16:9</span><h4>A. Planche pilote</h4><button class="copy" type="button">Copier</button></div>
+          <div class="prompt-head"><span class="prompt-kind">IMAGE · GPT IMAGE 2 OU SEEDREAM · 16:9</span><h4>A. Planche pilote</h4><button class="copy" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier</span></button></div>
           <div class="prompt-refs"><b>@image1 à @image3</b> = 2 ou 3 photos du pilote. Une planche par pilote.</div>
 <pre class="prompt-body">Photorealistic character reference sheet of the racing driver shown in @image1, @image2 and @image3. Wide 16:9 sheet on a seamless neutral mid-grey studio background, three panels side by side with equal spacing and the same scale. Left panel: full body front view, standing straight, arms relaxed along the body, feet visible. Centre panel: full body back view, same pose. Right panel: close-up of the helmet and upper chest in three-quarter front view. Race suit, gloves, boots and helmet exactly as in the references: same colours, same sponsor placement, same helmet design, 100% matching. Visor closed, opaque and dark-mirrored, no visible face. Soft even studio light from the front and both sides, no harsh shadows, crisp detail on fabric weave, stitching, embroidered logos and helmet paint, true colours, sharp focus on every panel. No props, no text, no labels, no watermark, no extra people.</pre>
           <button class="more" type="button">Afficher tout le prompt</button>
         </div>
 
         <div class="prompt" data-prompt>
-          <div class="prompt-head"><span class="prompt-kind">IMAGE · GPT IMAGE 2 OU SEEDREAM · 16:9</span><h4>B. Planche voiture</h4><button class="copy" type="button">Copier</button></div>
+          <div class="prompt-head"><span class="prompt-kind">IMAGE · GPT IMAGE 2 OU SEEDREAM · 16:9</span><h4>B. Planche voiture</h4><button class="copy" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier</span></button></div>
           <div class="prompt-refs"><b>@image1 à @image3</b> = 3 photos de la voiture (de près, de plus loin, de profil). Une planche par voiture.</div>
 <pre class="prompt-body">Photorealistic vehicle reference sheet of the Formula 1 car shown in @image1, @image2 and @image3. Wide 16:9 sheet on a seamless neutral mid-grey studio floor and background, three panels side by side with equal spacing. Left panel: very close three-quarter front view at nose height, front wing, nose and front tyre filling the panel. Centre panel: the whole car in three-quarter front view from 6 metres, all four wheels on the floor, complete car in frame. Right panel: clean side profile, car perfectly parallel to the frame, nose pointing screen-right. Livery, sponsor placement, race number, wheel rims and tyre markings exactly as in the references, 100% matching. Halo visible, cockpit empty. Soft studio light with long white strip reflections sweeping across the bodywork, crisp carbon fibre texture, true colours, sharp focus on every panel. No driver, no text, no labels, no watermark, no other cars.</pre>
           <button class="more" type="button">Afficher tout le prompt</button>
         </div>
 
         <div class="prompt" data-prompt>
-          <div class="prompt-head"><span class="prompt-kind">IMAGE · GPT IMAGE 2 OU SEEDREAM · 2×2</span><h4>C. Vues du circuit</h4><button class="copy" type="button">Copier</button></div>
+          <div class="prompt-head"><span class="prompt-kind">IMAGE · GPT IMAGE 2 OU SEEDREAM · 2×2</span><h4>C. Vues du circuit</h4><button class="copy" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier</span></button></div>
           <div class="prompt-refs"><b>@image1, @image2</b> = 2 photos de nuit du vrai circuit. Elles servent de repères, pas de cadrage à copier.</div>
 <pre class="prompt-body">Photoreal night photography of [CIRCUIT NAME, CITY], four views of the same circuit on the same night, presented as a clean 2×2 grid on a black background, each panel vertical 9:16. Top-left: high aerial three-quarter view of the whole circuit and the city around it. Top-right: the start/finish straight at track level, grandstands on the left and the lit gantry above the grid. Bottom-left: pit lane and paddock buildings lit cool white. Bottom-right: the slowest hairpin seen from a low angle at the kerb. Use the photos in @image1 and @image2 as architecture and layout landmarks only, not as camera angles to copy. Identical lighting in all four panels: full night, pure black sky, long rows of neutral cool-white floodlights, a few restrained warm amber accents, colour only from the advertising boards. Dry asphalt with rubber marks, red and white kerbs, no cars, no people on track. Deep blue-black shadows, rich blacks, restrained saturation, soft highlight roll-off, natural bloom, clean detail, no grain, no haze, no added text or logos.</pre>
           <button class="more" type="button">Afficher tout le prompt</button>
         </div>
 
         <div class="prompt" data-prompt>
-          <div class="prompt-head"><span class="prompt-kind">IMAGE · GPT IMAGE 2 OU SEEDREAM · 9:16</span><h4>D. Image d'ouverture, vue aérienne de nuit</h4><button class="copy" type="button">Copier</button></div>
+          <div class="prompt-head"><span class="prompt-kind">IMAGE · GPT IMAGE 2 OU SEEDREAM · 9:16</span><h4>D. Image d'ouverture, vue aérienne de nuit</h4><button class="copy" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier</span></button></div>
           <div class="prompt-refs"><b>@image1, @image2</b> = les mêmes photos du circuit. Garde bien cette image : elle ouvre la course et sert de texture à la dernière maquette (étape 05).</div>
 <pre class="prompt-body">Photoreal night aerial photograph looking straight down from 400 metres above [CIRCUIT NAME, CITY], vertical 9:16, the camera perfectly vertical with no tilt. The complete track layout sits in the centre of the frame and reads as one bright clean shape: floodlit asphalt ribbon, red and white kerbs, pit lane and grandstands lit cool white. Around it, the city at night: dark rooftops, warm amber street lights tracing the avenues, a few lit hotel facades, black water with soft reflections where the circuit meets the marina. Use the photos in @image1 and @image2 as layout and architecture landmarks only, not as camera angles to copy. Neutral cool-white floodlights, a few restrained warm amber accents, deep blue-black shadows, rich blacks, restrained saturation, soft highlight roll-off, natural bloom on the floodlights, crisp detail, no grain, no haze, no clouds, no cars, no text, no map labels.</pre>
           <button class="more" type="button">Afficher tout le prompt</button>
         </div>
 
         <div class="prompt" data-prompt>
-          <div class="prompt-head"><span class="prompt-kind">VIDÉO · SEEDANCE 2.5 · 30 S · 9:16</span><h4>E. La séquence course complète</h4><button class="copy" type="button">Copier</button></div>
+          <div class="prompt-head"><span class="prompt-kind">VIDÉO · SEEDANCE 2.5 · 30 S · 9:16</span><h4>E. La séquence course complète</h4><button class="copy" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier</span></button></div>
           <div class="prompt-refs">
             <table class="reftable">
               <tr><td>@image1</td><td>l'image d'ouverture (prompt D)</td></tr>
@@ -521,9 +607,18 @@ The first visible frame is @image1. Every car and driver matches its reference i
         <p class="note"><b>Garde la bonne prise.</b> Génère 2 ou 3 versions et garde celle dont la première image est identique à ton image d'ouverture : c'est elle qui rend la coupe invisible au moment du tap.</p>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/cartes.mp4" poster="media/cerega/cartes.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/cartes_still.webp"><img class="pose" src="media/cerega/cartes.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
+
+<aside class="cta-wa" data-cta>
+    <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/danse_still.webp"><img class="pose" src="media/cerega/danse.webp" alt="" loading="lazy" decoding="async"></picture></div>
+    <div class="copyb">
+      <div class="head"><span class="logo"><svg width="34" height="34" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></span><h3>Le groupe WhatsApp</h3></div>
+      <div class="bubble">Rejoins le groupe WhatsApp pour avoir accès à toutes les ressources !</div>
+      <a class="btn wa" href="https://chat.whatsapp.com/BBF6IarQ6EIJTpxFCDZwci" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg> Rejoindre le groupe</a>
+    </div>
+  </aside>
 
 <!-- ================= ÉTAPE 02 ================= -->
 <section class="step" id="etape-02" data-step="02 · Tourne la plaque">
@@ -531,7 +626,7 @@ The first visible frame is @image1. Every car and driver matches its reference i
     <div class="main-col">
       <div class="step-head">
         <div><span class="stepnum">02</span><span class="layer"><b>Étape 02</b>Tournage</span></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/clap.mp4" poster="media/cerega/clap.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/clap_still.webp"><img class="pose" src="media/cerega/clap.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <h2 class="step-title">Tourne la plaque</h2>
       <div class="panel">
@@ -565,7 +660,7 @@ The first visible frame is @image1. Every car and driver matches its reference i
         <p class="note"><b>Note tes timecodes.</b> Sur notre prise : ouverture à 0,8 s, swipes à 3,4 s et 4,4 s, tap à 5,8 s. Tout le reste se cale sur ces quatre moments.</p>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/clap.mp4" poster="media/cerega/clap.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/clap_still.webp"><img class="pose" src="media/cerega/clap.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
 
@@ -575,7 +670,7 @@ The first visible frame is @image1. Every car and driver matches its reference i
     <div class="main-col">
       <div class="step-head">
         <div><span class="stepnum">03</span><span class="layer"><b>Étape 03</b>Tracking · Blender</span></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/chef.mp4" poster="media/cerega/chef.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/chef_still.webp"><img class="pose" src="media/cerega/chef.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <h2 class="step-title">Tracke la caméra</h2>
       <div class="panel">
@@ -590,13 +685,13 @@ The first visible frame is @image1. Every car and driver matches its reference i
           <li>Pose un cube test sur la table et lis tout le plan : il ne doit jamais glisser.</li>
         </ol>
         <div class="prompt" data-prompt>
-          <div class="prompt-head"><span class="prompt-kind">CLAUDE + CONNECTEUR BLENDER</span><h4>Le tracking fait par Claude</h4><button class="copy" type="button">Copier</button></div>
+          <div class="prompt-head"><span class="prompt-kind">CLAUDE + CONNECTEUR BLENDER</span><h4>Le tracking fait par Claude</h4><button class="copy" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier</span></button></div>
 <pre class="prompt-body">Dans mon Blender, fais le tracking caméra 3D du plan [NOM_DU_CLIP] en utilisant les croix blanches sur la table comme repères. Résous la caméra en affinant la focale et la distorsion, aligne le sol sur le plateau de la table, mets l'origine sur la croix centrale et l'échelle à [X] cm entre les croix [A] et [B]. Pose ensuite un cube test sur la table pour que je vérifie l'accroche sur tout le plan.</pre>
           <button class="more" type="button">Afficher tout le prompt</button>
         </div>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/chef.mp4" poster="media/cerega/chef.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/chef_still.webp"><img class="pose" src="media/cerega/chef.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
 
@@ -606,7 +701,7 @@ The first visible frame is @image1. Every car and driver matches its reference i
     <div class="main-col">
       <div class="step-head">
         <div><span class="stepnum">04</span><span class="layer"><b>Étape 04</b>Nettoyage · After Effects</span></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/ciseaux.mp4" poster="media/cerega/ciseaux.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/ciseaux_still.webp"><img class="pose" src="media/cerega/ciseaux.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <h2 class="step-title">Nettoie la table, détoure les mains</h2>
       <div class="panel">
@@ -625,17 +720,14 @@ The first visible frame is @image1. Every car and driver matches its reference i
         <p class="note"><b>Sur une maquette sombre, tout se voit.</b> Un trou au poignet ou un bout de table entre les doigts ressort immédiatement sur un hologramme de nuit. Vérifie surtout les gestes rapides (les swipes), image par image.</p>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/ciseaux.mp4" poster="media/cerega/ciseaux.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/ciseaux_still.webp"><img class="pose" src="media/cerega/ciseaux.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
 
-<div class="block">
-  <a class="callout wa" href="https://chat.whatsapp.com/BBF6IarQ6EIJTpxFCDZwci" target="_blank" rel="noopener">
-    <span class="ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="#062b14"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></span>
-    <span><span class="t">Rejoins le groupe WhatsApp pour avoir accès à toutes les ressources !</span></span>
-    <span class="go">Rejoindre</span>
-  </a>
-</div>
+<div class="cta-mini" data-cta>
+    <p>Les cours complets, les lives et les exercices sont sur le <b>Skool</b>.</p>
+    <a class="btn red shine" href="https://www.skool.com/formation-ia" target="_blank" rel="noopener">Découvrir le Skool <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
 
 <!-- ================= ÉTAPE 05 ================= -->
 <section class="step" id="etape-05" data-step="05 · Les maquettes hologramme">
@@ -643,7 +735,7 @@ The first visible frame is @image1. Every car and driver matches its reference i
     <div class="main-col">
       <div class="step-head">
         <div><span class="stepnum">05</span><span class="layer"><b>Étape 05</b>Hologramme · Blender</span></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/clavier.mp4" poster="media/cerega/clavier.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/clavier_still.webp"><img class="pose" src="media/cerega/clavier.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <h2 class="step-title">Construis les maquettes hologramme</h2>
       <div class="panel">
@@ -706,7 +798,7 @@ The first visible frame is @image1. Every car and driver matches its reference i
         <p class="note"><b>Maquette rose ou blanche au rendu ?</b> C'est une texture chargée en chemin relatif. Passe tes chemins en absolu avant de lancer le rendu.</p>
 
         <div class="prompt" data-prompt>
-          <div class="prompt-head"><span class="prompt-kind">CLAUDE + CONNECTEUR BLENDER</span><h4>Une maquette hologramme</h4><button class="copy" type="button">Copier</button></div>
+          <div class="prompt-head"><span class="prompt-kind">CLAUDE + CONNECTEUR BLENDER</span><h4>Une maquette hologramme</h4><button class="copy" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier</span></button></div>
 <pre class="prompt-body">Dans mon Blender, sur la scène trackée, construis la maquette hologramme de [VILLE] : récupère les rues, les bâtiments et l'eau depuis OpenStreetMap (BLOSM) et le tracé du circuit [NOM DU CIRCUIT]. La maquette couvre tout le plateau de la table, dans l'axe de sa longueur, posée sur une dalle sombre de 1,4 cm avec un liseré cyan lumineux.
 Style hologramme de nuit : sol bleu nuit avec routes lumineuses (orange pour les grands axes, blanc froid pour les rues) et une grille cyan discrète ; bâtiments néon (magenta, cyan, violet, bleu glacier, quelques ambre) avec des bandes de fenêtres éclairées, des arêtes lumineuses en Geometry Nodes et des scanlines qui montent ; tracé du circuit en néon [COULEUR] avec un cœur blanc ; au-dessus, un cartouche « GRAND PRIX / [VILLE] / CIRCUIT [X] KM » qui fait toujours face à la caméra.
 Animation : la maquette se révèle en onde depuis [POINT] à l'image [N] et les bâtiments poussent depuis la table au passage de l'onde ; à l'image [N], elle sort vers la [GAUCHE/DROITE] pendant que [VILLE SUIVANTE] entre de l'autre côté.
@@ -714,13 +806,13 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
           <button class="more" type="button">Afficher tout le prompt</button>
         </div>
         <div class="prompt" data-prompt>
-          <div class="prompt-head"><span class="prompt-kind">CLAUDE + CONNECTEUR BLENDER</span><h4>La dernière maquette et la montée caméra</h4><button class="copy" type="button">Copier</button></div>
+          <div class="prompt-head"><span class="prompt-kind">CLAUDE + CONNECTEUR BLENDER</span><h4>La dernière maquette et la montée caméra</h4><button class="copy" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier</span></button></div>
 <pre class="prompt-body">Construis la dernière maquette à partir de la première image de ma course ([FICHIER]) : utilise cette image comme texture du sol, en version nuit, et cale le tracé néon exactement sur la piste visible dans l'image. À l'image du tap ([N]), dissous la maquette en onde depuis le point touché, puis fais quitter le tracking à la caméra et fais-la monter en une seconde jusqu'à une vue parfaitement verticale qui recadre exactement cette première image. Exporte pour chaque image les coins de la zone de l'image d'ouverture en pixels, pour la compo.</pre>
           <button class="more" type="button">Afficher tout le prompt</button>
         </div>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/clavier.mp4" poster="media/cerega/clavier.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/clavier_still.webp"><img class="pose" src="media/cerega/clavier.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
 
@@ -730,7 +822,7 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
     <div class="main-col">
       <div class="step-head">
         <div><span class="stepnum">06</span><span class="layer"><b>Étape 06</b>Transition · After Effects</span></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/bouton.mp4" poster="media/cerega/bouton.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/bouton_still.webp"><img class="pose" src="media/cerega/bouton.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <h2 class="step-title">Le tap : tout part en cubes</h2>
       <div class="panel">
@@ -750,9 +842,14 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
         <p class="note"><b>Comment on l'a fait.</b> Sur notre vidéo, Claude a généré cette transition image par image en Python (cubes de 18 px aspirés vers le centre de la vue aérienne). La recette ci-dessus donne le même effet avec les effets natifs d'After Effects.</p>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/bouton.mp4" poster="media/cerega/bouton.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/bouton_still.webp"><img class="pose" src="media/cerega/bouton.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
+
+<div class="wa-mini" data-cta>
+    <p><svg width="28" height="28" viewBox="0 0 24 24" fill="#128C4A" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>Toutes les ressources sont sur le groupe WhatsApp</p>
+    <a class="btn wa" href="https://chat.whatsapp.com/BBF6IarQ6EIJTpxFCDZwci" target="_blank" rel="noopener">Rejoindre <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
 
 <!-- ================= ÉTAPE 07 ================= -->
 <section class="step" id="etape-07" data-step="07 · La nuit, le glow, le son">
@@ -760,7 +857,7 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
     <div class="main-col">
       <div class="step-head">
         <div><span class="stepnum">07</span><span class="layer"><b>Étape 07</b>Étalo · Compo · Son</span></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/pellicule.mp4" poster="media/cerega/pellicule.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/pellicule_still.webp"><img class="pose" src="media/cerega/pellicule.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <h2 class="step-title">La nuit, le glow et le son</h2>
       <div class="panel">
@@ -798,7 +895,7 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
         <p>Export : H.264, 1080 × 1920, 30 i/s, son AAC 256 kb/s.</p>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/pellicule.mp4" poster="media/cerega/pellicule.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/pellicule_still.webp"><img class="pose" src="media/cerega/pellicule.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
 
@@ -808,7 +905,7 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
     <div class="main-col">
       <div class="step-head">
         <div><h2 class="step-title" style="margin:0 0 22px">Les 5 règles</h2></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/stop.mp4" poster="media/cerega/stop.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/stop_still.webp"><img class="pose" src="media/cerega/stop.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <div class="panel">
         <ol class="rules">
@@ -820,7 +917,7 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
         </ol>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/stop.mp4" poster="media/cerega/stop.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/stop_still.webp"><img class="pose" src="media/cerega/stop.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
 
@@ -830,7 +927,7 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
     <div class="main-col">
       <div class="step-head">
         <div><h2 class="step-title" style="margin:0 0 22px">Checklist avant export</h2></div>
-        <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/tampon.mp4" poster="media/cerega/tampon.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/tampon_still.webp"><img class="pose" src="media/cerega/tampon.webp" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
       <div class="panel">
         <p class="count" id="count">0 sur 8 cochés</p>
@@ -846,7 +943,7 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
         </ul>
       </div>
     </div>
-    <aside class="rail" aria-hidden="true"><div class="cerega"><video data-loop src="media/cerega/tampon.mp4" poster="media/cerega/tampon.jpg" muted loop playsinline preload="none"></video></div></aside>
+    <aside class="rail" aria-hidden="true"><div class="cerega"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/tampon_still.webp"><img class="pose" src="media/cerega/tampon.webp" alt="" loading="lazy" decoding="async"></picture></div></aside>
   </div>
 </section>
 
@@ -864,28 +961,37 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
   </div>
 </section>
 
-<div class="block">
-  <a class="callout red" href="https://www.skool.com/formation-ia" target="_blank" rel="noopener">
-    <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
-    <span><span class="t">Apprends la création de contenu vidéo IA avec CERËGA</span><br><span class="s">Rejoins la formation sur le Skool : cours, lives, exercices et concours.</span></span>
-    <span class="go">Rejoindre</span>
-  </a>
-</div>
-<div class="block">
-  <a class="callout wa" href="https://chat.whatsapp.com/BBF6IarQ6EIJTpxFCDZwci" target="_blank" rel="noopener">
-    <span class="ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="#062b14"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></span>
-    <span><span class="t">Rejoins le groupe WhatsApp pour avoir accès à toutes les ressources !</span></span>
-    <span class="go">Rejoindre</span>
-  </a>
-</div>
+<aside class="cta-skool" data-cta>
+    <span class="bgc" aria-hidden="true"><span class="wm">SKOOL 2.0</span></span>
+    <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/lunettes_still.webp"><img class="pose" src="media/cerega/lunettes.webp" alt="" loading="lazy" decoding="async"></picture></div>
+    <div class="copyb">
+      <span class="chip">SKOOL 2.0 · la formation</span>
+      <h3>À toi de jouer, on t'accompagne sur le Skool</h3>
+      <p>Sur le Skool, CERËGA t'apprend la création de contenu vidéo IA de A à Z.</p>
+      <ul><li>Des cours pas à pas</li><li>Des lives</li><li>Des exercices et des concours</li></ul>
+      <a class="btn white shine" href="https://www.skool.com/formation-ia" target="_blank" rel="noopener">Rejoindre le Skool <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </aside>
+<aside class="cta-wa" data-cta>
+    <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/clin_oeil_still.webp"><img class="pose" src="media/cerega/clin_oeil.webp" alt="" loading="lazy" decoding="async"></picture></div>
+    <div class="copyb">
+      <div class="head"><span class="logo"><svg width="34" height="34" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></span><h3>Le groupe WhatsApp</h3></div>
+      <div class="bubble">Rejoins le groupe WhatsApp pour avoir accès à toutes les ressources !</div>
+      <a class="btn wa" href="https://chat.whatsapp.com/BBF6IarQ6EIJTpxFCDZwci" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg> Rejoindre le groupe</a>
+    </div>
+  </aside>
 
 <footer class="sign">
   <p><b>Sergey Likharyev</b>CERËGA · CKRÉ, 2026</p>
-  <div class="cerega" aria-hidden="true"><video data-loop src="media/cerega/fauteuil.mp4" poster="media/cerega/fauteuil.jpg" muted loop playsinline preload="none"></video></div>
+  <div class="cerega" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/cerega/fauteuil_still.webp"><img class="pose" src="media/cerega/fauteuil.webp" alt="" loading="lazy" decoding="async"></picture></div>
 </footer>
 
 </div>
 </main>
+<nav class="dock" id="dock" aria-label="Rejoindre">
+  <a class="d-wa" href="https://chat.whatsapp.com/BBF6IarQ6EIJTpxFCDZwci" target="_blank" rel="noopener" aria-label="Rejoindre le groupe WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="#062b14" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></a>
+  <a class="d-skool" href="https://www.skool.com/formation-ia" target="_blank" rel="noopener">Rejoindre le <b>Skool</b> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</nav>
 
 <script>
 (function(){
@@ -910,10 +1016,16 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
   var hero = document.getElementById('hero');
   var sound = document.getElementById('sound');
   if (reduce) { hero.removeAttribute('autoplay'); hero.pause(); hero.controls = true; }
+  var firstUnmute = true;
   sound.addEventListener('click', function(){
     hero.muted = !hero.muted;
-    if (!hero.muted) { var p = hero.play(); if (p && p.catch) p.catch(function(){}); }
-    sound.textContent = hero.muted ? 'Activer le son' : 'Couper le son';
+    if (!hero.muted) {
+      if (firstUnmute) { hero.currentTime = 0; firstUnmute = false; }
+      hero.volume = 1;
+      var p = hero.play(); if (p && p.catch) p.catch(function(){});
+    }
+    sound.querySelector('span').textContent = hero.muted ? 'Mets le son' : 'Couper le son';
+    sound.classList.toggle('on', !hero.muted);
     sound.setAttribute('aria-pressed', String(!hero.muted));
   });
 
@@ -959,7 +1071,8 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
     });
     var btn = box.querySelector('.copy');
     btn.addEventListener('click', function(){
-      var done = function(){ btn.textContent = 'Copié'; btn.classList.add('ok'); setTimeout(function(){ btn.textContent = 'Copier'; btn.classList.remove('ok'); }, 1800); };
+      var lab = btn.querySelector('span');
+      var done = function(){ lab.textContent = 'Copié !'; btn.classList.add('ok'); setTimeout(function(){ lab.textContent = 'Copier'; btn.classList.remove('ok'); }, 1800); };
       var fallback = function(){
         var t = document.createElement('textarea'); t.value = raw; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
         document.body.appendChild(t); t.select(); try { document.execCommand('copy'); done(); } catch (e) {} document.body.removeChild(t);
@@ -987,6 +1100,18 @@ Rendu Eevee 30 i/s, 1080 × 1920, fond transparent, depuis la caméra trackée, 
   tb.addEventListener('click', function(){ setToc(!toc.classList.contains('open')); });
   toc.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setToc(false); }); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setToc(false); });
+
+  /* --- barre CTA : visible après le haut de page, masquée quand un widget CTA est à l'écran --- */
+  var dock = document.getElementById('dock');
+  var heroEl = document.querySelector('.hero');
+  var ctaVisible = 0, pastHero = false;
+  function syncDock(){ dock.classList.toggle('show', pastHero && ctaVisible === 0); }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(es){ es.forEach(function(e){ pastHero = !e.isIntersecting; }); syncDock(); }).observe(heroEl);
+    var seen = new Set();
+    var co = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target); }); ctaVisible = seen.size; syncDock(); }, {threshold: 0.25});
+    document.querySelectorAll('[data-cta]').forEach(function(el){ co.observe(el); });
+  } else { dock.classList.add('show'); }
 
   /* --- checklist mémorisée dans ce navigateur --- */
   var KEY = 'guide-f1-checklist';
