@@ -12,8 +12,8 @@ window.POSTS = [
     ressource: "https://mxth57360.github.io/GUIDES/f1/",
     apercu: "media/f1/apercu.jpg",
     fichiers: [
-      { label: "Vidéo à poster", detail: "Habillée Skool · 1080 × 1920 · 25 s · 21,6 Mo", src: "media/f1/F1_Skool_pret-a-poster_1080x1920.mp4", principal: true },
-      { label: "Version sans habillage", detail: "1080 × 1920 · 25 s · 29,3 Mo", src: "media/f1/F1_sans-habillage_1080x1920.mp4" },
+      { label: "Vidéo à poster", detail: "Habillée Skool · 1080 × 1920 · 25 s · 19,8 Mo", src: "media/f1/F1_Skool_pret-a-poster_v2_1080x1920.mp4", principal: true },
+      { label: "Version sans habillage", detail: "1080 × 1920 · 25 s · 29,3 Mo", src: "media/f1/F1_sans-habillage_v2_1080x1920.mp4" },
       { label: "Couverture", detail: "Image 1080 × 1920", src: "media/f1/F1_couverture_1080x1920.jpg" }
     ],
     dm: "Hello ! Voici le guide complet pour refaire la vidéo F1, avec toutes les étapes et tous les prompts prêts à copier :\nhttps://mxth57360.github.io/GUIDES/f1/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
