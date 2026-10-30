@@ -26,3 +26,7 @@ Ouvre le fichier sur github.com, clique sur le crayon, modifie, puis **Commit ch
 - Limites GitHub Pages : 25 Mo par fichier envoyé depuis le navigateur, environ 1 Go par site. Garde les vidéos compressées (le guide F1 pèse 13 Mo).
 - Pour un aperçu propre quand le lien est partagé, remplace dans `f1/index.html` la ligne `og:image` par l'adresse complète de l'image, par exemple `https://mxth57360.github.io/GUIDES/f1/media/img/poster_final.jpg`.
 - Nom de domaine perso (ex. `guides.tondomaine.fr`) : Settings › Pages › Custom domain, puis un enregistrement CNAME chez ton registrar vers `TON-PSEUDO.github.io`.
+
+## Miniatures de lien
+
+Chaque guide a sa miniature 1200 × 630 (`og.jpg` dans son dossier), celle qui s'affiche quand on envoie le lien en DM, sur WhatsApp ou LinkedIn. Elles sont faites avec le modèle `_outils/miniature.html` (gros titre, sous-titre, pastille, image dans le téléphone, pose de Cerega). Demande à Claude d'en générer une pour chaque nouveau guide.
