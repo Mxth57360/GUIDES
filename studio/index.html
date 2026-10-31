@@ -63,6 +63,8 @@ h1{margin:0;font:400 clamp(58px,13vw,128px)/.88 var(--display);text-transform:up
 .dl{display:grid;gap:10px;margin:18px auto 0;max-width:340px}
 .dlb{display:flex;align-items:center;gap:12px;text-decoration:none;padding:12px 14px;border-radius:14px;background:rgba(23,60,219,.25);border:1px solid var(--line);transition:transform .12s,border-color .12s}
 .dlb:hover{border-color:#fff;transform:translateY(-1px)}
+.dlb .thumb{flex:none;width:38px;height:56px;border-radius:7px;overflow:hidden;background:#000;border:1px solid var(--line)}
+.dlb .thumb img{width:100%;height:100%;object-fit:cover}
 .dlb .ic{flex:none;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.12)}
 .dlb b{display:block;font:700 19px/1.1 var(--cond)}
 .dlb small{display:block;font:500 13px/1.3 var(--body);color:var(--mist)}
@@ -194,7 +196,7 @@ h1{margin:0;font:400 clamp(58px,13vw,128px)/.88 var(--display);text-transform:up
   wrap.innerHTML = posts.map(function(p, pi){
     var files = p.fichiers.map(function(f){
       var isImg = /\.(jpe?g|png|webp)$/i.test(f.src);
-      return '<a class="dlb' + (f.principal ? ' main' : '') + '" href="' + esc(f.src) + '" download="' + esc(fname(f.src)) + '"><span class="ic">' + (isImg ? ICON_IMG : ICON_DL) + '</span><span><b>' + esc(f.label) + '</b><small>' + esc(f.detail) + '</small></span></a>';
+      return '<a class="dlb' + (f.principal ? ' main' : '') + '" href="' + esc(f.src) + '" download="' + esc(fname(f.src)) + '">' + (isImg ? '<span class="thumb"><img src="' + esc(f.src) + '" alt="" loading="lazy"></span>' : '<span class="ic">' + ICON_DL + '</span>') + '<span><b>' + esc(f.label) + '</b><small>' + esc(f.detail) + '</small></span></a>';
     }).join('');
     var main = p.fichiers.filter(function(f){ return f.principal; })[0] || p.fichiers[0];
     var tabs = p.reseaux.map(function(r, ri){

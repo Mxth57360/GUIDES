@@ -15,7 +15,9 @@ window.POSTS = [
     apercu: "media/halloween-paris/apercu.jpg",
     fichiers: [
       { label: "Vidéo à poster", detail: "1920 × 1080 · 51 s · 61,5 Mo", src: "media/halloween-paris/Halloween_Paris_1920x1080.mp4", principal: true },
-      { label: "Couverture", detail: "Image 1920 × 1080", src: "media/halloween-paris/Halloween_Paris_couverture_1920x1080.jpg" }
+      { label: "Miniature 9:16 avec titre", detail: "Insta et TikTok · 1080 × 1920", src: "media/halloween-paris/Halloween_Paris_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta et TikTok · 1080 × 1920", src: "media/halloween-paris/Halloween_Paris_miniature-cine_1080x1920.jpg" },
+      { label: "Couverture 16:9", detail: "Image 1920 × 1080", src: "media/halloween-paris/Halloween_Paris_couverture_1920x1080.jpg" }
     ],
     reseaux: [
       {
@@ -42,7 +44,9 @@ window.POSTS = [
     apercu: "media/halloween-clown/apercu.jpg",
     fichiers: [
       { label: "Vidéo à poster", detail: "1920 × 1080 · 15 s · 15,5 Mo", src: "media/halloween-clown/Halloween_Clown_1920x1080.mp4", principal: true },
-      { label: "Couverture", detail: "Image 1920 × 1080", src: "media/halloween-clown/Halloween_Clown_couverture_1920x1080.jpg" }
+      { label: "Miniature 9:16 avec titre", detail: "Insta et TikTok · 1080 × 1920", src: "media/halloween-clown/Halloween_Clown_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta et TikTok · 1080 × 1920", src: "media/halloween-clown/Halloween_Clown_miniature-cine_1080x1920.jpg" },
+      { label: "Couverture 16:9", detail: "Image 1920 × 1080", src: "media/halloween-clown/Halloween_Clown_couverture_1920x1080.jpg" }
     ],
     reseaux: [
       {
@@ -70,7 +74,9 @@ window.POSTS = [
     fichiers: [
       { label: "Vidéo à poster", detail: "Habillée Skool · 1080 × 1920 · 25 s · 19,8 Mo", src: "media/f1/F1_Skool_pret-a-poster_v2_1080x1920.mp4", principal: true },
       { label: "Version sans habillage", detail: "1080 × 1920 · 25 s · 29,3 Mo", src: "media/f1/F1_sans-habillage_v2_1080x1920.mp4" },
-      { label: "Couverture", detail: "Image 1080 × 1920", src: "media/f1/F1_couverture_1080x1920.jpg" }
+      { label: "Miniature 9:16 avec titre", detail: "Insta et TikTok · 1080 × 1920", src: "media/f1/F1_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta et TikTok · 1080 × 1920", src: "media/f1/F1_miniature-cine_1080x1920.jpg" },
+      { label: "Couverture habillée", detail: "Image 1080 × 1920", src: "media/f1/F1_couverture_1080x1920.jpg" }
     ],
     dm: "Hello ! Voici le guide complet pour refaire la vidéo F1, avec toutes les étapes et tous les prompts prêts à copier :\nhttps://mxth57360.github.io/GUIDES/f1/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
     reseaux: [
