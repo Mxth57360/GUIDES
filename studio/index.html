@@ -57,6 +57,9 @@ h1{margin:0;font:400 clamp(58px,13vw,128px)/.88 var(--display);text-transform:up
 .col-media{padding:20px;border-bottom:1px solid var(--line)}
 .player{position:relative;width:100%;max-width:300px;margin:0 auto;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;border:4px solid #050a2a;box-shadow:0 16px 30px rgba(4,8,40,.4)}
 .player video{width:100%;height:100%;object-fit:cover}
+.post.wide .player{max-width:100%;aspect-ratio:16/9}
+.post.wide .dl{max-width:100%}
+.tagline{display:inline-block;margin-left:2px;font:700 14px/1 var(--cond);letter-spacing:.06em;padding:6px 9px;border-radius:999px;background:rgba(255,46,59,.18);color:#fff;vertical-align:middle}
 .dl{display:grid;gap:10px;margin:18px auto 0;max-width:340px}
 .dlb{display:flex;align-items:center;gap:12px;text-decoration:none;padding:12px 14px;border-radius:14px;background:rgba(23,60,219,.25);border:1px solid var(--line);transition:transform .12s,border-color .12s}
 .dlb:hover{border-color:#fff;transform:translateY(-1px)}
@@ -123,6 +126,7 @@ h1{margin:0;font:400 clamp(58px,13vw,128px)/.88 var(--display);text-transform:up
 @media (min-width:900px){
   :root{--gut:28px}
   .post-body{grid-template-columns:360px 1fr}
+  .post.wide .post-body{grid-template-columns:480px 1fr}
   .col-media{border-bottom:0;border-right:1px solid var(--line);padding:24px}
   .col-text{padding:24px 26px}
   .keys{grid-template-columns:1fr 1fr}
@@ -141,7 +145,7 @@ h1{margin:0;font:400 clamp(58px,13vw,128px)/.88 var(--display);text-transform:up
 <main class="wrap" id="top">
   <header class="top">
     <h1>Prêt à poster</h1>
-    <p class="intro">Chaque tuto avec sa vidéo en pleine qualité, sa ressource et ses textes par réseau. Télécharge, copie, publie.</p>
+    <p class="intro">Chaque vidéo en pleine qualité, avec sa ressource et ses textes par réseau. Télécharge, copie, publie.</p>
     <ul class="index" id="index"></ul>
   </header>
   <div id="posts"></div>
@@ -204,19 +208,20 @@ h1{margin:0;font:400 clamp(58px,13vw,128px)/.88 var(--display);text-transform:up
         '<div class="pane-top"><span class="status' + (st.done ? ' done' : '') + '">' + st.txt + '</span><span class="sp"></span>' + cpBtn('all' + key, all, r.titre ? 'Tout copier' : 'Copier le texte') + '</div>' +
         title +
         '<div class="field"><div class="lab"><span>' + (r.titre ? 'DESCRIPTION' : 'TEXTE DU POST') + '</span><span class="n' + (r.limite && r.texte.length > r.limite ? ' over' : '') + '">' + r.texte.length + (r.limite ? ' / ' + r.limite : '') + ' caractères</span></div><pre>' + esc(r.texte) + '</pre>' + (r.titre ? '<div class="row">' + cpBtn('tx' + key, r.texte, 'Copier la description', true) + '</div>' : '') + '</div>' +
+        (r.alt ? '<div class="field"><div class="lab"><span>TEXTE ALTERNATIF (PARAMÈTRES AVANCÉS)</span><span class="n">' + r.alt.length + ' caractères</span></div><pre>' + esc(r.alt) + '</pre><div class="row">' + cpBtn('al' + key, r.alt, 'Copier le texte alternatif', true) + '</div></div>' : '') +
       '</div>';
     }).join('');
-    return '<article class="post" id="' + esc(p.id) + '">' +
-      '<div class="post-head"><div><h2>' + esc(p.titre) + '</h2><p>' + esc(p.sousTitre || '') + '</p></div><span class="date">Ajouté le ' + fdate(p.date) + '</span></div>' +
+    return '<article class="post' + (p.format === '16:9' ? ' wide' : '') + '" id="' + esc(p.id) + '">' +
+      '<div class="post-head"><div><h2>' + esc(p.titre) + '</h2><p>' + esc(p.sousTitre || '') + (p.compte ? ' <span class="tagline">' + esc(p.compte) + '</span>' : '') + '</p></div><span class="date">Ajouté le ' + fdate(p.date) + '</span></div>' +
       '<div class="post-body">' +
         '<div class="col-media"><div class="player"><video src="' + esc(main.src) + '" poster="' + esc(p.apercu) + '" controls playsinline preload="none"></video></div><div class="dl">' + files + '</div></div>' +
         '<div class="col-text">' +
-          '<p class="sec-t">L\'ESSENTIEL</p>' +
+          ((p.motCle || p.ressource || p.dm) ? '<p class="sec-t">L\'ESSENTIEL</p>' +
           '<div class="keys">' +
-            '<div class="key"><span class="k">MOT-CLÉ À COMMENTER</span><span class="v big">' + esc(p.motCle) + '</span><span class="acts">' + cpBtn('mc' + pi, p.motCle) + '</span></div>' +
-            '<div class="key"><span class="k">LIEN DE LA RESSOURCE</span><span class="v"><a href="' + esc(p.ressource) + '" target="_blank" rel="noopener">' + esc(p.ressource.replace(/^https?:\/\//, '')) + '</a></span><span class="acts"><a class="cp ghost" href="' + esc(p.ressource) + '" target="_blank" rel="noopener" aria-label="Ouvrir la ressource">' + ICON_OPEN + '</a>' + cpBtn('rs' + pi, p.ressource) + '</span></div>' +
-            '<div class="key dm"><span class="k">MESSAGE AUTO EN DM</span><span class="v">' + esc(p.dm) + '</span><span class="acts">' + cpBtn('dm' + pi, p.dm) + '</span></div>' +
-          '</div>' +
+            (p.motCle ? '<div class="key"><span class="k">MOT-CLÉ À COMMENTER</span><span class="v big">' + esc(p.motCle) + '</span><span class="acts">' + cpBtn('mc' + pi, p.motCle) + '</span></div>' : '') +
+            (p.ressource ? '<div class="key"><span class="k">LIEN DE LA RESSOURCE</span><span class="v"><a href="' + esc(p.ressource) + '" target="_blank" rel="noopener">' + esc(p.ressource.replace(/^https?:\/\//, '')) + '</a></span><span class="acts"><a class="cp ghost" href="' + esc(p.ressource) + '" target="_blank" rel="noopener" aria-label="Ouvrir la ressource">' + ICON_OPEN + '</a>' + cpBtn('rs' + pi, p.ressource) + '</span></div>' : '') +
+            (p.dm ? '<div class="key dm"><span class="k">MESSAGE AUTO EN DM</span><span class="v">' + esc(p.dm) + '</span><span class="acts">' + cpBtn('dm' + pi, p.dm) + '</span></div>' : '') +
+          '</div>' : '') +
           '<p class="sec-t">TEXTES PAR RÉSEAU</p>' +
           '<div class="tabs" role="tablist" aria-label="Réseaux">' + tabs + '</div>' + panes +
         '</div>' +
