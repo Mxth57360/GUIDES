@@ -1,10 +1,42 @@
 /* Les posts du studio, du plus récent au plus ancien.
    Pour ajouter une vidéo : copier un bloc { ... }, le coller en tête de la liste et remplacer les valeurs.
-   Champs facultatifs : motCle, ressource, dm (tutos), compte, format ("16:9" pour les vidéos horizontales).
+   Champs facultatifs : motCle, ressource, dm (tutos), compte, format ("16:9" ou "4:3" pour les vidéos non verticales), lecture (version légère pour le lecteur du studio).
    Instagram : 5 hashtags maximum par post.
    Les vidéos vont dans studio/media/<id>/ (100 Mo max par fichier).
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
+  {
+    id: "jutsu",
+    titre: "Jutsu",
+    sousTitre: "Change tout avec Genjutsu",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-05",
+    motCle: "JUTSU",
+    ressource: "https://mxth57360.github.io/GUIDES/jutsu/",
+    apercu: "media/jutsu/apercu.jpg",
+    lecture: "../jutsu/media/jutsu_final.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 28 s · 33,7 Mo", src: "media/jutsu/Jutsu_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/jutsu/Jutsu_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/jutsu/Jutsu_miniature-cine_1080x1920.jpg" }
+    ],
+    dm: "Hello ! Voici le guide complet pour changer ta montre, ta coupe ou ton décor avec Genjutsu, avec tous les prompts prêts à copier :\nhttps://mxth57360.github.io/GUIDES/jutsu/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "J'ai le pouvoir de tout changer 🥷\n\nCommente « JUTSU » et je t'envoie le guide complet, avec tous les prompts prêts à copier.\n\nTu changerais quoi en premier ?\n\n#ia #higgsfield #genjutsu #vfx #creationdecontenu"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "Changer un détail d'une vidéo sans la retourner.\n\nUne phrase, une image de référence, et Genjutsu de Higgsfield change un seul élément en gardant tout le reste : le visage, les gestes, la lumière, le cadre. Ensuite, tu recommences autant de fois que tu veux.\n\nJ'ai mis toute la méthode dans un guide, avec les prompts prêts à copier.\nCommente « JUTSU » et je te l'envoie.\n\n#IA #VideoIA #Higgsfield #CreationDeContenu #PostProduction"
+      }
+    ]
+  },
   {
     id: "halloween-paris",
     titre: "Halloween à Paris",

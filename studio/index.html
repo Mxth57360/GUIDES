@@ -58,6 +58,7 @@ h1{margin:0;font:400 clamp(58px,13vw,128px)/.88 var(--display);text-transform:up
 .player{position:relative;width:100%;max-width:300px;margin:0 auto;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;border:4px solid #050a2a;box-shadow:0 16px 30px rgba(4,8,40,.4)}
 .player video{width:100%;height:100%;object-fit:cover}
 .post.wide .player{max-width:100%;aspect-ratio:16/9}
+.post.wide.r43 .player{aspect-ratio:4/3}
 .post.wide .dl{max-width:100%}
 .tagline{display:inline-block;margin-left:2px;font:700 14px/1 var(--cond);letter-spacing:.06em;padding:6px 9px;border-radius:999px;background:rgba(255,46,59,.18);color:#fff;vertical-align:middle}
 .dl{display:grid;gap:10px;margin:18px auto 0;max-width:340px}
@@ -213,10 +214,10 @@ h1{margin:0;font:400 clamp(58px,13vw,128px)/.88 var(--display);text-transform:up
         (r.alt ? '<div class="field"><div class="lab"><span>TEXTE ALTERNATIF (PARAMÈTRES AVANCÉS)</span><span class="n">' + r.alt.length + ' caractères</span></div><pre>' + esc(r.alt) + '</pre><div class="row">' + cpBtn('al' + key, r.alt, 'Copier le texte alternatif', true) + '</div></div>' : '') +
       '</div>';
     }).join('');
-    return '<article class="post' + (p.format === '16:9' ? ' wide' : '') + '" id="' + esc(p.id) + '">' +
+    return '<article class="post' + ((p.format === '16:9' || p.format === '4:3') ? ' wide' : '') + (p.format === '4:3' ? ' r43' : '') + '" id="' + esc(p.id) + '">' +
       '<div class="post-head"><div><h2>' + esc(p.titre) + '</h2><p>' + esc(p.sousTitre || '') + (p.compte ? ' <span class="tagline">' + esc(p.compte) + '</span>' : '') + '</p></div><span class="date">Ajouté le ' + fdate(p.date) + '</span></div>' +
       '<div class="post-body">' +
-        '<div class="col-media"><div class="player"><video src="' + esc(main.src) + '" poster="' + esc(p.apercu) + '" controls playsinline preload="none"></video></div><div class="dl">' + files + '</div></div>' +
+        '<div class="col-media"><div class="player"><video src="' + esc(p.lecture || main.src) + '" poster="' + esc(p.apercu) + '" controls playsinline preload="none"></video></div><div class="dl">' + files + '</div></div>' +
         '<div class="col-text">' +
           ((p.motCle || p.ressource || p.dm) ? '<p class="sec-t">L\'ESSENTIEL</p>' +
           '<div class="keys">' +
