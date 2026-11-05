@@ -12,6 +12,7 @@ Les guides en ligne, hébergés gratuitement sur GitHub Pages, indépendamment d
    - accueil : `https://mxth57360.github.io/GUIDES/`
    - guide F1 : `https://mxth57360.github.io/GUIDES/f1/` (c'est ce lien qu'on envoie aux gens qui commentent FORMULE 1)
    - guide Jutsu : `https://mxth57360.github.io/GUIDES/jutsu/` (pour ceux qui commentent JUTSU)
+   - guide Matrix : `https://mxth57360.github.io/GUIDES/matrix/` (pour ceux qui commentent MATRIX)
 
 ## Ajouter un nouveau guide
 

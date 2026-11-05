@@ -6,6 +6,38 @@
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
   {
+    id: "matrix",
+    titre: "Matrix",
+    sousTitre: "Prompt basique ou prompt travaillé",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-05",
+    motCle: "MATRIX",
+    ressource: "https://mxth57360.github.io/GUIDES/matrix/",
+    apercu: "media/matrix/apercu.jpg",
+    lecture: "../matrix/media/matrix_final.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 38 s · 46,0 Mo", src: "media/matrix/Matrix_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/matrix/Matrix_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/matrix/Matrix_miniature-cine_1080x1920.jpg" }
+    ],
+    dm: "Hello ! Voici le guide complet pour passer d'un prompt basique à un prompt travaillé, en image et en vidéo, avec tous les prompts prêts à copier :\nhttps://mxth57360.github.io/GUIDES/matrix/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "Le même outil, deux prompts. 💊\n\nCommente « MATRIX » et je t'envoie le guide : trois scènes en image et en vidéo, le prompt basique et le prompt travaillé, prêts à copier.\n\nBleue ou rouge ?\n\n#ia #prompt #higgsfield #seedance #creationdecontenu"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "Ce qui sépare une image IA générique d'une image qui a une intention, ce n'est pas l'outil. C'est le prompt.\n\nUne caméra, une lumière, une palette, un instant précis : quatre choses qu'un prompt basique ne dit jamais, et que l'IA remplit au hasard.\n\nJ'ai mis trois exemples côte à côte, en image et en vidéo : le prompt que tout le monde écrit, et le prompt travaillé.\nCommente « MATRIX » et je t'envoie le guide.\n\n#IA #VideoIA #Prompting #CreationDeContenu #Cinema"
+      }
+    ]
+  },
+  {
     id: "jutsu",
     titre: "Jutsu",
     sousTitre: "Change tout avec Genjutsu",
