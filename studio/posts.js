@@ -6,6 +6,38 @@
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
   {
+    id: "cinema",
+    titre: "Cinéma",
+    sousTitre: "Le réalisme avec l'IA, en 7 séquences",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-06",
+    motCle: "CINÉMA",
+    ressource: "https://mxth57360.github.io/GUIDES/cinema/",
+    apercu: "media/cinema/apercu.jpg",
+    lecture: "../cinema/media/cinema_final.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 41 s · 42,4 Mo", src: "media/cinema/Cinema_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/cinema/Cinema_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/cinema/Cinema_miniature-cine_1080x1920.jpg" }
+    ],
+    dm: "Hello ! Voici le guide complet sur le réalisme avec l'IA, avec les références et les 7 prompts prêts à copier :\nhttps://mxth57360.github.io/GUIDES/cinema/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "Un coffre, un poker, un animé, une baignoire et un lance-roquette. 🎬\n\nAucun décor en référence : juste deux planches persos, et un prompt écrit comme un chef op.\n\nCommente « CINÉMA » et je t'envoie le guide complet sur le réalisme avec l'IA, avec les 7 prompts prêts à copier.\n\nTa scène préférée ?\n\n#ia #cinema #seedance #higgsfield #creationdecontenu"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "Le réalisme en vidéo IA ne vient pas de l'outil. Il vient de la façon d'écrire.\n\nPour cette vidéo, je n'ai donné que deux images à Seedance 2.5 : les planches de mes personnages. Tout le reste est écrit dans le prompt : le décor couche par couche, l'angle de caméra, l'optique, ce qui est net et ce qui est flou, la lumière et la palette de couleurs.\n\nSept séquences, sept univers : un coffre de voiture, une partie de poker, un combat en animé, un shooting photo, une soirée, une baignoire et un lance-roquette.\n\nJ'ai mis les références et les sept prompts dans un guide.\nCommente « CINÉMA » et je te l'envoie.\n\n#IA #VideoIA #Cinema #CreationDeContenu #Prompting"
+      }
+    ]
+  },
+  {
     id: "focale",
     titre: "Focale",
     sousTitre: "Les focales en IA, de 24 à 200 mm",
