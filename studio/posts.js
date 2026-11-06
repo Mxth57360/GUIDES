@@ -6,6 +6,38 @@
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
   {
+    id: "focale",
+    titre: "Focale",
+    sousTitre: "Les focales en IA, de 24 à 200 mm",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-06",
+    motCle: "FOCALE",
+    ressource: "https://mxth57360.github.io/GUIDES/focales/",
+    apercu: "media/focale/apercu.jpg",
+    lecture: "../focales/media/focale_final.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 41 s · 45,3 Mo", src: "media/focale/Focale_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/focale/Focale_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/focale/Focale_miniature-cine_1080x1920.jpg" }
+    ],
+    dm: "Hello ! Voici le guide complet des focales en IA, avec les captures, les prompts et le générateur de ligne optique :\nhttps://mxth57360.github.io/GUIDES/focales/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "Gros plan, plan serré, portrait… l'IA s'en fiche. Elle veut des chiffres. 🎥\n\nCommente « FOCALE » et je t'envoie le guide : les 5 focales, ce qu'elles font, et la ligne exacte à mettre dans ton prompt.\n\nTa focale préférée ?\n\n#ia #focale #cinema #seedance #higgsfield"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "« Gros plan » ne veut rien dire de précis pour une IA. « 135 mm », si.\n\nLa focale règle le cadre, le flou du fond et la façon dont le décor se rapproche. C'est le réglage le plus simple pour faire passer une génération de « correcte » à « cinéma ».\n\nJ'ai mis les 5 focales dans un guide, avec des captures, les prompts et un générateur de ligne optique.\nCommente « FOCALE » et je te l'envoie.\n\n#IA #VideoIA #Cinema #CreationDeContenu #Prompting"
+      }
+    ]
+  },
+  {
     id: "blender",
     titre: "Blender",
     sousTitre: "Contrôle ta caméra à 100 % avec Claude, Blender et Seedance",

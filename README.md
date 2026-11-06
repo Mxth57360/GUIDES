@@ -14,6 +14,7 @@ Les guides en ligne, hébergés gratuitement sur GitHub Pages, indépendamment d
    - guide Jutsu : `https://mxth57360.github.io/GUIDES/jutsu/` (pour ceux qui commentent JUTSU)
    - guide Matrix : `https://mxth57360.github.io/GUIDES/matrix/` (pour ceux qui commentent MATRIX)
    - guide Blender : `https://mxth57360.github.io/GUIDES/blender/` (pour ceux qui commentent BLENDER)
+   - guide Focale : `https://mxth57360.github.io/GUIDES/focales/` (pour ceux qui commentent FOCALE)
 
 ## Ajouter un nouveau guide
 
