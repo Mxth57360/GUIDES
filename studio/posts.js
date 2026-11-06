@@ -6,6 +6,38 @@
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
   {
+    id: "blender",
+    titre: "Blender",
+    sousTitre: "Contrôle ta caméra à 100 % avec Claude, Blender et Seedance",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-06",
+    motCle: "BLENDER",
+    ressource: "https://mxth57360.github.io/GUIDES/blender/",
+    apercu: "media/blender/apercu.jpg",
+    lecture: "../blender/media/blender_final.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 50 s · 60,5 Mo", src: "media/blender/Blender_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/blender/Blender_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/blender/Blender_miniature-cine_1080x1920.jpg" }
+    ],
+    dm: "Hello ! Voici le guide complet pour contrôler ta caméra à 100 % avec Claude, Blender et Seedance 2.5, avec tous les prompts prêts à copier :\nhttps://mxth57360.github.io/GUIDES/blender/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "La caméra fait exactement ce que j'ai prévu. 🎬\n\nCommente « BLENDER » et je t'envoie le guide : le prompt pour Claude, le playblast Blender et le prompt Seedance 2.5, prêts à copier.\n\nFinis le hasard.\n\n#ia #blender #claude #seedance #creationdecontenu"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "Le vrai problème de la vidéo IA, ce n'est pas la qualité. C'est le contrôle : tu demandes un mouvement de caméra, tu en obtiens un autre.\n\nMa méthode : je décris la scène et la caméra à Claude Opus 5.5, seconde par seconde. Il construit tout dans Blender, en volumes simples, et me sort un playblast. Je donne ce playblast à Seedance 2.5 avec mes images de référence.\n\nRésultat : la caméra fait exactement ce que j'ai prévu, et l'image respecte mes références.\nCommente « BLENDER » et je t'envoie le guide, avec tous les prompts.\n\n#IA #VideoIA #Blender #Claude #CreationDeContenu"
+      }
+    ]
+  },
+  {
     id: "matrix",
     titre: "Matrix",
     sousTitre: "Prompt basique ou prompt travaillé",
