@@ -6,6 +6,38 @@
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
   {
+    id: "pub",
+    titre: "Pub",
+    sousTitre: "Le branding de ta marque avec l'IA",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-09",
+    motCle: "PUB",
+    ressource: "https://mxth57360.github.io/GUIDES/pub/",
+    apercu: "media/pub/apercu.jpg",
+    lecture: "../pub/media/pub_final.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 43 s · 23,9 Mo", src: "media/pub/Pub_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/pub/Pub_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/pub/Pub_miniature-cine_1080x1920.jpg" }
+    ],
+    dm: "Hello ! Voici le guide complet pour développer le branding de ta marque avec l'IA, avec les deux planches, les 15 affiches et les prompts de la pub vidéo prêts à copier :\nhttps://mxth57360.github.io/GUIDES/pub/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "Une marque de burger inventée de A à Z avec l'IA. 🍔\n\nLe nom, le logo, le packaging, 15 affiches et la pub vidéo, à partir d'une seule image produit.\n\nCommente « PUB » et je t'envoie le guide complet pour développer le branding de ta marque avec l'IA, avec tous les prompts prêts à copier.\n\nTu croques ou pas ?\n\n#ia #branding #publicite #seedance #higgsfield"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "Une marque, ce n'est pas un logo. C'est un système qui se répète partout.\n\nPour cette vidéo, j'ai inventé une marque de smash burgers de A à Z avec l'IA : CEREGAL. Le nom, le logo, les trois couleurs, le packaging, le burger, quinze affiches et une pub vidéo de 22 secondes.\n\nLa méthode tient en trois étapes :\n1. Une planche marque : le logo, le slogan, les couleurs et le packaging.\n2. Une planche produit : le burger sous six angles.\n3. Ces deux planches en référence pour tout le reste : les affiches en image, la pub en vidéo avec Seedance 2.5.\n\nUne fois que l'IA a ce système sous les yeux, tu peux décliner ta marque à l'infini.\n\nJ'ai mis toutes les étapes et tous les prompts dans un guide.\nCommente « PUB » et je te l'envoie.\n\n#IA #Branding #Publicite #CreationDeContenu #Prompting"
+      }
+    ]
+  },
+  {
     id: "cinema",
     titre: "Cinéma",
     sousTitre: "Le réalisme avec l'IA, en 7 séquences",

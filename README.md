@@ -16,6 +16,7 @@ Les guides en ligne, hébergés gratuitement sur GitHub Pages, indépendamment d
    - guide Blender : `https://mxth57360.github.io/GUIDES/blender/` (pour ceux qui commentent BLENDER)
    - guide Focale : `https://mxth57360.github.io/GUIDES/focales/` (pour ceux qui commentent FOCALE)
    - guide Cinéma : `https://mxth57360.github.io/GUIDES/cinema/` (pour ceux qui commentent CINÉMA)
+   - guide Pub : `https://mxth57360.github.io/GUIDES/pub/` (pour ceux qui commentent PUB)
 
 ## Ajouter un nouveau guide
 
