@@ -6,6 +6,33 @@
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
   {
+    id: "pokemon",
+    titre: "Pokémon",
+    sousTitre: "Cerega et sa famille Pokémon",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-09",
+    apercu: "media/pokemon/apercu.jpg",
+    lecture: "media/pokemon/Pokemon_lecture.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 28 s · 33,2 Mo", src: "media/pokemon/Pokemon_1440x1080.mp4", principal: true }
+    ],
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "Le quotidien du parrain. 🔴\n\nChaque Pokémon a son rôle dans la famille.\n\nLequel tu prends dans ton équipe ? 👇\n\n#ia #pokemon #cinema #seedance #higgsfield"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "Et si les Pokémon faisaient partie de la famille ?\n\nUn barbier, un tireur d'élite, un gros mangeur de pizza, un bras droit dans la voiture… Chaque plan de cette vidéo est généré en IA, avec le même personnage du début à la fin.\n\nLequel tu engagerais ?\n\n#IA #VideoIA #Pokemon #CreationDeContenu #Cinema"
+      }
+    ]
+  },
+  {
     id: "pub",
     titre: "Pub",
     sousTitre: "Le branding de ta marque avec l'IA",
