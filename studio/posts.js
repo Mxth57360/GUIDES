@@ -15,7 +15,9 @@ window.POSTS = [
     apercu: "media/pokemon/apercu.jpg",
     lecture: "media/pokemon/Pokemon_lecture.mp4",
     fichiers: [
-      { label: "Vidéo à poster", detail: "1440 × 1080 · 28 s · 33,2 Mo", src: "media/pokemon/Pokemon_1440x1080.mp4", principal: true }
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 28 s · 33,2 Mo", src: "media/pokemon/Pokemon_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/pokemon/Pokemon_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/pokemon/Pokemon_miniature-cine_1080x1920.jpg" }
     ],
     reseaux: [
       {
