@@ -6,6 +6,38 @@
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
   {
+    id: "fable",
+    titre: "Fable",
+    sousTitre: "Claude Fable 5.2 décortiqué",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-11",
+    motCle: "FABLE",
+    ressource: "https://mxth57360.github.io/GUIDES/fable/",
+    apercu: "media/fable/apercu.jpg",
+    lecture: "../fable/media/fable_final.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 31 s · 38,5 Mo", src: "media/fable/Fable_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/fable/Fable_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/fable/Fable_miniature-cine_1080x1920.jpg" }
+    ],
+    dm: "Hello ! Voici le guide complet de Claude Fable 5.2 : l'analyse du modèle, comment régler son effort, et nos six exemples (l'appli, la DA, les carrousels, la pub animée, le tuto motion et la 3D) avec tous les prompts prêts à copier :\nhttps://mxth57360.github.io/GUIDES/fable/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "Claude Fable 5.2 vient de sortir, et il est complètement dingue. 🔴\n\nUne appli montée de A à Z, tous ses visuels marketing jusqu'à la pub animée, et de la 3D toujours plus réaliste.\n\nCommente « FABLE » et je t'envoie en DM le guide complet de ce nouveau modèle : ce qu'il vaut, comment il raisonne, comment le régler, et tous les prompts prêts à copier.\n\nTu le testes sur quoi en premier ? 👇\n\n#ia #claude #anthropic #fable #intelligenceartificielle"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "Anthropic vient de sortir Claude Fable 5.2, son modèle le plus puissant ouvert à tous.\n\nSur les tests publiés par Anthropic, il passe devant Opus 5.5 en code (49,1 % contre 45,5 % sur FrontierCode 2.0). Il écrit jusqu'à 30 % plus vite que la version précédente, et il coûte 20 % moins cher en API.\n\nMais le plus utile, c'est de savoir le régler :\n1. Opus 5.5 pour le quotidien, Fable pour les gros chantiers.\n2. L'effort à la hauteur de la tâche : Medium pour créer, High pour une appli, Extra high pour les plus gros projets.\n3. Un brief complet, avec ce que veut dire « fini », et la consigne d'aller jusqu'au bout.\n\nJ'ai tout mis dans un guide : l'analyse du modèle, son raisonnement, et six exemples, de l'appli à la pub animée et à la 3D, avec leurs prompts prêts à copier.\nCommente « FABLE » et je te l'envoie.\n\n#IA #Claude #Anthropic #IntelligenceArtificielle #CreationDeContenu"
+      }
+    ]
+  },
+  {
     id: "pokemon",
     titre: "Pokémon",
     sousTitre: "Cerega et sa famille Pokémon",
