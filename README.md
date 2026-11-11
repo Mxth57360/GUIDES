@@ -9,7 +9,7 @@ Les guides en ligne, hébergés gratuitement sur GitHub Pages, indépendamment d
 3. Sur la page du dépôt vide, clique **uploading an existing file**, puis glisse le **contenu** de ce dossier (le fichier `index.html` et le dossier `f1`). Clique **Commit changes**.
 4. Onglet **Settings** › **Pages** › *Build and deployment* : Source **Deploy from a branch**, Branch **main**, dossier **/ (root)**, puis **Save**.
 5. Une à deux minutes plus tard, le guide est en ligne :
-   - accueil : `https://mxth57360.github.io/GUIDES/`
+   - l'adresse de base `https://mxth57360.github.io/GUIDES/` renvoie vers le Skool : elle ne liste aucun guide
    - guide F1 : `https://mxth57360.github.io/GUIDES/f1/` (c'est ce lien qu'on envoie aux gens qui commentent FORMULE 1)
    - guide Jutsu : `https://mxth57360.github.io/GUIDES/jutsu/` (pour ceux qui commentent JUTSU)
    - guide Matrix : `https://mxth57360.github.io/GUIDES/matrix/` (pour ceux qui commentent MATRIX)
@@ -21,7 +21,7 @@ Les guides en ligne, hébergés gratuitement sur GitHub Pages, indépendamment d
 
 ## Ajouter un nouveau guide
 
-Ajoute un dossier à côté de `f1` (par exemple `motion/` avec son `index.html` et son dossier `media/`), puis une carte dans `index.html`. Il sera en ligne à `https://mxth57360.github.io/GUIDES/motion/`.
+Ajoute un dossier à côté de `f1` (par exemple `motion/` avec son `index.html` et son dossier `media/`), puis une carte dans l'index de l'espace privé (le dossier qui commence par `espace-`). Ne mets jamais de carte dans le `index.html` de la racine : il renvoie vers le Skool. Il sera en ligne à `https://mxth57360.github.io/GUIDES/motion/`.
 
 ## Modifier un guide
 
@@ -44,3 +44,10 @@ Chaque guide a sa miniature 1200 × 630 (`og.jpg` dans son dossier), celle qui s
 - Un titre d'ouverture travaillé et animé (contour décalé, reflet, glitch).
 - La vidéo finale en tête de page, avec le son activable.
 - Deux CTA, Skool et groupe WhatsApp, répétés plusieurs fois dans la page (grands widgets + bandeaux), plus la barre fixe en bas.
+
+## Confidentialité
+
+- La racine du site et toute adresse qui n'existe pas (`404.html`) renvoient vers le Skool : quelqu'un qui raccourcit le lien d'un guide ne voit pas les autres.
+- La liste des guides et le studio sont dans des dossiers au nom impossible à deviner. Ne partage pas ces liens.
+- Chaque page porte `noindex` : les moteurs de recherche ne les listent pas.
+- Tant que le dépôt est public, ses fichiers restent visibles sur github.com. Pour les cacher, passe le dépôt en privé (Settings › General › Danger Zone › Change visibility). GitHub Pages sur un dépôt privé demande un abonnement payant (GitHub Pro) ; le site, lui, reste en ligne aux mêmes adresses.
