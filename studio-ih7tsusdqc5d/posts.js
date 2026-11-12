@@ -6,6 +6,38 @@
    statut : "a-poster" ou une date "2026-10-31" quand c'est publié sur ce réseau. */
 window.POSTS = [
   {
+    id: "king",
+    titre: "King",
+    sousTitre: "Le cinématique en IA, de l'image à Seedance",
+    compte: "Compte de Cerega",
+    format: "4:3",
+    date: "2026-11-12",
+    motCle: "KING",
+    ressource: "https://mxth57360.github.io/GUIDES/king/",
+    apercu: "media/king/apercu.jpg",
+    lecture: "../king/media/king_final.mp4",
+    fichiers: [
+      { label: "Vidéo à poster", detail: "1440 × 1080 · 39 s · 34,7 Mo", src: "media/king/KING_1440x1080.mp4", principal: true },
+      { label: "Miniature 9:16 avec titre", detail: "Insta · 1080 × 1920", src: "media/king/KING_miniature-titre_1080x1920.jpg" },
+      { label: "Miniature 9:16 sans titre", detail: "Insta · 1080 × 1920", src: "media/king/KING_miniature-cine_1080x1920.jpg" }
+    ],
+    dm: "Hello ! Voici le guide complet pour pousser le cinématique dans tes images et tes prompts Seedance : la tribu, les planches, le chevalier, le décor, la scène et le combat, avec les 13 prompts prêts à copier :\nhttps://mxth57360.github.io/GUIDES/king/\n\nTu y trouveras aussi le lien du Skool et du groupe WhatsApp pour toutes les autres ressources.",
+    reseaux: [
+      {
+        nom: "Instagram",
+        statut: "a-poster",
+        limite: 2200,
+        texte: "Il débarque au milieu de nulle part… et une tribu lui fonce dessus. 👑\n\nTout est généré en IA : les portraits, les planches, le décor, la scène et le combat.\n\nCommente « KING » et je t'envoie en DM le guide complet pour pousser le cinématique dans tes images et tes prompts Seedance, avec tous les prompts prêts à copier.\n\nTu l'aurais joué comment, toi ? 👇\n\n#ia #seedance #midjourney #cinema #videoia"
+      },
+      {
+        nom: "LinkedIn",
+        statut: "a-poster",
+        limite: 3000,
+        texte: "Tout le monde peut générer une vidéo avec l'IA. Ce qui fait la différence, c'est le rendu de film.\n\nCette scène est entièrement générée : une tribu en portraits Midjourney, une planche par personnage, un décor sur Nano Banana, puis deux prompts Seedance de 30 et 16 secondes.\n\nTrois réflexes qui changent tout :\n1. Un sujet simple, filmé comme un film : la lumière, la matière et la caméra font le rendu.\n2. Une planche par personnage, de face, de dos et en gros plan : l'identité ne bouge plus.\n3. Une caméra dans l'action, minutée plan par plan : un seul gros mouvement par plan, et personne ne regarde l'objectif.\n\nJ'ai tout mis dans un guide, avec les 13 prompts prêts à copier.\nCommente « KING » et je te l'envoie.\n\n#IA #VideoIA #Seedance #CreationDeContenu #Cinema"
+      }
+    ]
+  },
+  {
     id: "fable",
     titre: "Fable",
     sousTitre: "Claude Fable 5.2 décortiqué",

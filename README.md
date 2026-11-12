@@ -18,6 +18,7 @@ Les guides en ligne, hébergés gratuitement sur GitHub Pages, indépendamment d
    - guide Cinéma : `https://mxth57360.github.io/GUIDES/cinema/` (pour ceux qui commentent CINÉMA)
    - guide Pub : `https://mxth57360.github.io/GUIDES/pub/` (pour ceux qui commentent PUB)
    - guide Fable : `https://mxth57360.github.io/GUIDES/fable/` (pour ceux qui commentent FABLE)
+   - guide King : `https://mxth57360.github.io/GUIDES/king/` (pour ceux qui commentent KING)
 
 ## Ajouter un nouveau guide
 
